@@ -5,6 +5,8 @@ using UnityEngine;
 public class NoiseDisplay : MonoBehaviour {
 
     public bool autoUpdate;
+    public int seed;
+    public Vector2 offset;
 
     public int width;
     public int height;
@@ -25,7 +27,7 @@ public class NoiseDisplay : MonoBehaviour {
         if (r == null) return;
 
         // get noise map
-        float[,] noiseMap = Noise.GenerateNoiseMap(width, height, scale, octaves, persistance, lacunarity);
+        float[,] noiseMap = Noise.GenerateNoiseMap(width, height, scale, octaves, persistance, lacunarity, seed, offset);
 
         Texture2D noiseTexture = new Texture2D(width, height);
 
